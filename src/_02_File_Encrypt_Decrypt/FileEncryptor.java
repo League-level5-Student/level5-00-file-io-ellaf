@@ -13,11 +13,12 @@ public class FileEncryptor {
 	public static void main(String[] args) {
 		
 		String input = JOptionPane.showInputDialog("Give me a message.");
-		String en1 = input.replaceAll("a", "&");
-		String en2 = en1.replaceAll("e", "#");
-		String en3 = en2.replaceAll("o", "^");
-		String en4 = en3.replaceAll("i","!");
-		String encrypted = en4.replaceAll("u", "@");
+		String encrypted = "";
+		for(int i = input.length()-1; i > -1; i--) {
+		encrypted += input.substring(i, i+1);
+		}
+		
+		
 		try {
 			FileWriter fw = new FileWriter("src/_02_File_Encrypt_Decrypt/encryptedFile.txt");
 			fw.write(encrypted);
